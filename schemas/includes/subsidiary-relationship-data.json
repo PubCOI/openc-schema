@@ -10,6 +10,7 @@
     "properties": {
       "type": "object",
       "required": [
+        "parent",
         "subsidiary"
       ],
       "additionalProperties": false,
@@ -25,6 +26,9 @@
         "significant": {
           "description": "Does the source define the control as somehow significant?",
           "type": "boolean"
+        },
+        "parent": {
+          "$ref": "includes/entity.json"
         },
         "subsidiary": {
           "description": "Company that is controlled",

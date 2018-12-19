@@ -67,10 +67,6 @@
       "description": "Jurisdiction of the subsidiary",
       "type": "string",
       "minLength": 1
-    },
-    "subsidiary_identifier": {
-      "description": "Any unique id for the subsidiary that might be provided in the source",
-      "type": "string"
     }
   },
   "other_attributes": {
