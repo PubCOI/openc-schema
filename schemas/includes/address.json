@@ -20,7 +20,10 @@
           "type": "string"
         },
         "region": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "postal_code": {
           "type": "string"

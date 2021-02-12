@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Used in the company-schema object (different nesting from 'company')",
+  "type": "object",
+  "properties": {
+    "street_address": {
+      "type": "string"
+    },
+    "locality": {
+      "type": "string"
+    },
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "country_code": {
+      "description": "ISO 3166-2 code for country",
+      "type": "string"
+    }
+  }
+}

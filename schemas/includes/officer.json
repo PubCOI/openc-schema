@@ -3,66 +3,74 @@
   "description": "An officer (director, senior executive) of a company",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "number"
-    },
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "not": {
-        "pattern": "^[\\.\\,\\*\\\\\\-\\s\\{\\}\\(\\)]+$"
-      }
-    },
-    "position": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string",
-      "description": "a unique identifier given to the officership"
-    },
-    "start_date": {
-      "anyOf": [
-        {
+    "officer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "^[\\.\\,\\*\\\\\\-\\s\\{\\}\\(\\)]+$"
+          }
+        },
+        "position": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string",
+          "description": "a unique identifier given to the officership"
+        },
+        "start_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opencorporates_url": {
+          "$ref": "opencorporates_url.json"
+        },
+        "occupation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inactive": {
+          "type": "boolean"
+        },
+        "address": {
+          "$ref": "address.json"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "date_of_birth": {
           "type": "string",
           "format": "date"
-        },
-        {
-          "type": "null"
         }
+      },
+      "required": [
+        "name"
       ]
-    },
-    "end_date": {
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "date"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "opencorporates_url": {
-      "$ref": "opencorporates_url.json"
-    },
-    "occupation": {
-      "type": ["string", "null"]
-    },
-    "inactive": {
-      "type": "boolean"
-    },
-    "address": {
-      "$ref": "address.json"
-    },
-    "nationality": {
-      "type": "string"
-    },
-    "date_of_birth": {
-      "type": "string",
-      "format": "date"
     }
-  },
-  "required": [
-    "name"
-  ]
+  }
 }

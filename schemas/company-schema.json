@@ -34,11 +34,8 @@
       ]
     },
     "registry_url": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "url"
+      "type": "string",
+      "format": "uri"
     },
     "branch": {
       "type": [
@@ -53,7 +50,10 @@
       ]
     },
     "branch_status": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "inactive": {
       "type": "boolean"
@@ -127,7 +127,10 @@
       "description": "The number of employees"
     },
     "native_company_number": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "registered_address_in_full": {
       "type": "string"
@@ -148,7 +151,7 @@
       }
     },
     "registered_address": {
-      "$ref": "includes/address.json"
+      "$ref": "includes/company-address.json"
     },
     "filings": {
       "type": "array",
@@ -203,12 +206,6 @@
     "total_shares": {
       "$ref": "includes/total-shares.json"
     },
-
-
-
-
-
-
     "subsequent_registrations": {
       "type": "array",
       "items": {
@@ -249,9 +246,6 @@
           "description": "The legal name of the 'home' company in its jurisdiction if this is a branch, and the name is different from the legal name of the branch",
           "minLength": 1
         },
-
-
-
         "merged_into": {
           "type": "object",
           "description": "Information on the merger of this company into a 'survivor' company",

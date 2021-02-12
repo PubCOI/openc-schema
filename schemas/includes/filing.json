@@ -3,54 +3,65 @@
   "description": "A statutory filing",
   "type": "object",
   "properties": {
-    "title": {
-      "type": "string"
-    },
-    "date": {
-      "type": "string",
-      "format": "date"
-    },
-    "description": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    },
-    "url": {
-      "type": ["string", "null"],
-      "format": "url"
-    },
-    "filing_type_code": {
-      "type": "string"
-    },
-    "filing_type_name": {
-      "type": "string"
-    },
-    "opencorporates_url": {
-      "$ref": "opencorporates_url.json"
-    },
-    "other_attributes": {
-      "type": "object"
+    "filing": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "description": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "url"
+        },
+        "filing_type_code": {
+          "type": "string"
+        },
+        "filing_type_name": {
+          "type": "string"
+        },
+        "opencorporates_url": {
+          "$ref": "opencorporates_url.json"
+        },
+        "other_attributes": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "date"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "title"
+          ]
+        },
+        {
+          "required": [
+            "description"
+          ]
+        },
+        {
+          "required": [
+            "filing_type_name"
+          ]
+        }
+      ]
     }
-  },
-  "required": [
-    "date"
-  ],
-  "anyOf": [
-    {
-      "required": [
-        "title"
-      ]
-    },
-    {
-      "required": [
-        "description"
-      ]
-    },
-    {
-      "required": [
-        "filing_type_name"
-      ]
-    }
-  ]
+  }
 }
