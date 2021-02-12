@@ -3,14 +3,14 @@
   "description": "A company in OpenCorporates",
   "type": "object",
   "properties": {
-    "company_number": {
-      "type": "string",
-      "description": "unique identifier given by the corporate register with which it is incorporated",
-      "minLength": 1
-    },
     "name": {
       "type": "string",
       "description": "Legal name of the company",
+      "minLength": 1
+    },
+    "company_number": {
+      "type": "string",
+      "description": "unique identifier given by the corporate register with which it is incorporated",
       "minLength": 1
     },
     "jurisdiction_code": {
@@ -27,34 +27,6 @@
       "type": "string",
       "format": "date"
     },
-    "created_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "retrieved_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "inactive": {
-      "type": "boolean"
-    },
-    "opencorporates_url": {
-      "type": "string",
-      "format": "uri"
-    },
-    "source": {
-      "$ref": "includes/source-element.json"
-    },
-    "current_status": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "company_type": {
       "type": [
         "string",
@@ -67,6 +39,128 @@
         "null"
       ],
       "format": "url"
+    },
+    "branch": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A flag to denote whether a company is a branch entity. This should only be set if the company is a type of branch (otherwise should be null). In general the only option here is 'F' for a 'Foreign' branch, i.e. an out-of-jurisdiction entity that has registered as having a presence in the jurisdiction. In the US this is sometimes called a Foreign Corporation",
+      "enum": [
+        "F",
+        "L",
+        null
+      ]
+    },
+    "branch_status": {
+      "type": ["string", "null"]
+    },
+    "inactive": {
+      "type": "boolean"
+    },
+    "current_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "opencorporates_url": {
+      "$ref": "includes/opencorporates_url.json"
+    },
+    "source": {
+      "$ref": "includes/source-element.json"
+    },
+    "agent_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The 'Agent' of the company – a person or entity that is empowered to accept service for the company",
+      "minLength": 1
+    },
+    "agent_address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The address of the 'Agent', a public address to which legal papers can be served",
+      "minLength": 1
+    },
+    "alternative_names": {
+      "type": "array",
+      "items": {
+        "$ref": "includes/alternative-name.json"
+      }
+    },
+    "previous_names": {
+      "type": "array",
+      "items": {
+        "$ref": "includes/previous-name.json"
+      }
+    },
+    "number_of_employees": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The number of employees"
+    },
+    "native_company_number": {
+      "type": ["string", "null"]
+    },
+    "registered_address_in_full": {
+      "type": "string"
+    },
+    "industry_codes": {
+      "type": "array",
+      "items": {
+        "$ref": "includes/industry-code.json"
+      }
+    },
+    "identifiers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "includes/identifier.json"
+      }
+    },
+    "registered_address": {
+      "$ref": "includes/address.json"
+    },
+    "filings": {
+      "type": "array",
+      "items": {
+        "$ref": "includes/filing.json"
+      }
+    },
+    "officers": {
+      "type": "array",
+      "items": {
+        "$ref": "includes/officer.json"
+      }
     },
     "website": {
       "oneOf": [
@@ -94,20 +188,11 @@
       "type": "string",
       "minLength": 4
     },
-    "registered_address": {
-      "$ref": "includes/address.json"
-    },
     "headquarters_address": {
       "$ref": "includes/address.json"
     },
     "mailing_address": {
       "$ref": "includes/address.json"
-    },
-    "officers": {
-      "type": "array",
-      "items": {
-        "$ref": "includes/officer.json"
-      }
     },
     "share_parcels": {
       "type": "array",
@@ -118,39 +203,12 @@
     "total_shares": {
       "$ref": "includes/total-shares.json"
     },
-    "filings": {
-      "type": "array",
-      "items": {
-        "$ref": "includes/filing.json"
-      }
-    },
-    "identifiers": {
-      "type": [
-        "array",
-        "null"
-      ],
-      "items": {
-        "$ref": "includes/identifier.json"
-      }
-    },
-    "industry_codes": {
-      "type": "array",
-      "items": {
-        "$ref": "includes/industry-code.json"
-      }
-    },
-    "previous_names": {
-      "type": "array",
-      "items": {
-        "$ref": "includes/previous-name.json"
-      }
-    },
-    "alternative_names": {
-      "type": "array",
-      "items": {
-        "$ref": "includes/alternative-name.json"
-      }
-    },
+
+
+
+
+
+
     "subsequent_registrations": {
       "type": "array",
       "items": {
@@ -162,21 +220,6 @@
       "items": {
         "$ref": "alternate-registration-schema.json"
       }
-    },
-    "branch": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "description": "A flag to denote whether a company is a branch entity. This should only be set if the company is a type of branch (otherwise should be null). In general the only option here is 'F' for a 'Foreign' branch, i.e. an out-of-jurisdiction entity that has registered as having a presence in the jurisdiction. In the US this is sometimes called a Foreign Corporation",
-      "enum": [
-        "F",
-        "L",
-        null
-      ]
-    },
-    "branch_status": {
-      "type": ["string", "null"]
     },
     "all_attributes": {
       "type": "object",
@@ -206,35 +249,9 @@
           "description": "The legal name of the 'home' company in its jurisdiction if this is a branch, and the name is different from the legal name of the branch",
           "minLength": 1
         },
-        "registered_agent_address": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The address of the 'Agent', a public address to which legal papers can be served",
-          "minLength": 1
-        },
-        "registered_agent_name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The 'Agent' of the company – a person or entity that is empowered to accept service for the company",
-          "minLength": 1
-        },
-        "number_of_employees": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1
-            },
-            {
-              "type": "number",
-              "minimum": 0
-            }
-          ],
-          "description": "The number of employees"
-        },
+
+
+
         "merged_into": {
           "type": "object",
           "description": "Information on the merger of this company into a 'survivor' company",

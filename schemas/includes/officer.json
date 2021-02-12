@@ -3,12 +3,22 @@
   "description": "An officer (director, senior executive) of a company",
   "type": "object",
   "properties": {
+    "id": {
+      "type": "number"
+    },
     "name": {
       "type": "string",
       "minLength": 1,
       "not": {
         "pattern": "^[\\.\\,\\*\\\\\\-\\s\\{\\}\\(\\)]+$"
       }
+    },
+    "position": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "string",
+      "description": "a unique identifier given to the officership"
     },
     "start_date": {
       "anyOf": [
@@ -32,39 +42,24 @@
         }
       ]
     },
-    "position": {
+    "opencorporates_url": {
+      "$ref": "opencorporates_url.json"
+    },
+    "occupation": {
+      "type": ["string", "null"]
+    },
+    "inactive": {
+      "type": "boolean"
+    },
+    "address": {
+      "$ref": "address.json"
+    },
+    "nationality": {
       "type": "string"
     },
-    "uid": {
+    "date_of_birth": {
       "type": "string",
-      "description": "a unique identifier given to the officership"
-    },
-    "other_attributes": {
-      "type": "object",
-      "properties": {
-        "date_of_birth": {
-          "type": "string",
-          "format": "date"
-        },
-        "nationality": {
-          "type": "string"
-        },
-        "person_uid": {
-          "type": "string",
-          "description": "a unique identifier given to the individual (as opposed to the officership)"
-        },
-        "address": {
-          "$ref": "address.json"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Person",
-            "Company"
-          ],
-          "description": "The type of entity that is the officer (either 'Person' or 'Company')"
-        }
-      }
+      "format": "date"
     }
   },
   "required": [
