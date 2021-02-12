@@ -43,7 +43,8 @@
       "type": "boolean"
     },
     "opencorporates_url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "source": {
       "$ref": "includes/source-element.json"
@@ -64,7 +65,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "format": "url"
     },
     "website": {
       "oneOf": [
