@@ -27,9 +27,26 @@
       "type": "string",
       "format": "date"
     },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
     "retrieved_at": {
       "type": "string",
-      "format": "date"
+      "format": "date-time"
+    },
+    "inactive": {
+      "type": "boolean"
+    },
+    "opencorporates_url": {
+      "type": "string"
+    },
+    "source": {
+      "$ref": "includes/source-element.json"
     },
     "current_status": {
       "type": [
@@ -155,6 +172,9 @@
         "L",
         null
       ]
+    },
+    "branch_status": {
+      "type": ["string", "null"]
     },
     "all_attributes": {
       "type": "object",

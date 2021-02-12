@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Source",
+  "description": "Upstream data source for OC data",
+  "type": "object",
+  "properties": {
+    "publisher": {
+      "type": "string"
+    },
+    "url": {
+      "type": ["string", "null"]
+    },
+    "terms": {
+      "type": "string"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
